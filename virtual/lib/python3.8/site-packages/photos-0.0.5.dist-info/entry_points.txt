@@ -1,0 +1,3 @@
+[console_scripts]
+photos = photos.__main__:main
+

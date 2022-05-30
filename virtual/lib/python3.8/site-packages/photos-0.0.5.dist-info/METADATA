@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: photos
+Version: 0.0.5
+Summary: Photo management utilities
+Home-page: https://github.com/chbrown/photos-python
+Author: Christopher Brown
+Author-email: io@henrian.com
+License: MIT
+Platform: UNKNOWN
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: click (>=7.0)
+Requires-Dist: colorama (>=0.4.0)
+Requires-Dist: ExifRead
+Requires-Dist: filesystemlib
+Requires-Dist: pyheif
+
+# `photos`
+
+Photo management utilities implemented in Python.
+
+
+## License
+
+Copyright 2020 Christopher Brown.
+[MIT Licensed](https://chbrown.github.io/licenses/MIT/#2020).
+
+

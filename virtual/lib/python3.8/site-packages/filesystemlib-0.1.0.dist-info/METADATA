@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: filesystemlib
+Version: 0.1.0
+Summary: Filesystem-related utilities
+Home-page: https://github.com/chbrown/filesystemlib
+Author: Christopher Brown
+Author-email: io@henrian.com
+License: MIT
+Platform: UNKNOWN
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+# `filesystemlib`
+
+File-related utilities implemented in Python.
+
+No install dependencies besides Python standard library.
+
+
+## License
+
+Copyright 2020 Christopher Brown.
+[MIT Licensed](https://chbrown.github.io/licenses/MIT/#2020).
+
+

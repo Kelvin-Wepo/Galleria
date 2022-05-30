@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block content%}
+<div class="container-fluid">
+  <h1 style="color:rgb(96,162,206);" class="text-center pt-5 mb-5"><strong>My Picture Book</strong></h1>
+  <h3 style="color:rgb(96,162,206); background-color: cornsilk;" class="text-center p-5 mb-5">Welcome to our website, click on an image to view more details about it.</h3>
+  <div class="row">  
+    {% for image in images %}
+    <div class="col-sm-4 col-md-4 col-lg-3 d-flex justify-content-center mb-5">
+    <a href="#" data-bs-target="#imagemodal{{ image.id }}" data-bs-toggle="modal" id="img">
+        <img id="imgsmall" src="{{image.image.url}}" style="width: 300px; height: 250px;">
+    </a>
+    
+    <!-- Image modal -->
+    <div class="modal fade" id="imagemodal{{image.id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title" id="myModalLabel">{{image.name}}</h4>
+          </div>
+          <div class="modal-body">
+            <img src="{{image.image.url}}" style="width: 450px; height: 380px;" >
+            <p>Description: {{image.description}}</p>
+            <p>Location: {{image.location}}</p>
+            <p>Category: {{image.category}}</p>
+          </div>
+          <div class="modal-footer">
+            <p>Posted on {{image.date_posted}} by {{image.photographer}}</p>           
+            <button onClick="Link(this.id)" id="{{image.image.url}}">Copy Image Link</button>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+    <script>
+        $("#img").on("click", function() {
+       $('#imgmodal').attr('src', $('#imgsmall').attr('src'));
+       $('#imagemodal').modal('show'); 
+    });
+    function Link(url){
+      navigator.clipboard.writeText(url);
+    }
+    </script>
+    {% endfor %}
+{% endblock %}

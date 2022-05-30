@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container-fluid pt-5 mt-5">
+    <div class="row pb-3 text-center">
+        {% if images %}
+            <h2 style="color:rgb(96,162,206)"><strong>Found {{ images|length }} images in {{ message }} category</strong></h2>
+        {% else %}
+            <h2 style="color:rgb(96,162,206)"> <strong>Found 0 images for your search {{ message }}</strong></h2>
+        {% endif %}      
+    </div>
+    <div class="row">
+        {% if images %}
+          {% for image in images %}
+    <div class="col-sm-4 col-md-4 col-lg-3 d-flex justify-content-center mb-5">
+    <a href="#" data-bs-target="#imagemodal{{ image.id }}" data-bs-toggle="modal" id="img">
+        <img id="imgsmall" src="{{image.image.url}}" style="width: 300px; height: 250px;">
+    </a>
+    
+    <!-- Image modal -->
+    <div class="modal fade" id="imagemodal{{image.id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title" id="myModalLabel">{{image.name}}</h4>
+          </div>
+          <div class="modal-body">
+            <img src="{{image.image.url}}" style="width: 450px; height: 380px;" >
+            <p>Description: {{image.description}}</p>
+            <p>Location: {{image.location}}</p>
+            <p>Category: {{image.category}}</p>
+          </div>
+          <div class="modal-footer">
+            <p>Posted on {{image.date_posted}} by {{image.photographer}}</p>           
+            <button onClick="Link(this.id)" id="{{image.image.url}}">Copy Image Link</button>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+    <script>
+        $("#img").on("click", function() {
+       $('#imgmodal').attr('src', $('#imgsmall').attr('src'));
+       $('#imagemodal').modal('show'); 
+    });
+    function Link(url){
+      navigator.clipboard.writeText(url);
+    }
+    </script>
+          {% endfor %}
+        {% endif %}
+        <a class="d-flex justify-content-center mx-auto py-5" href="/">
+            <button class="btn btn-dark btn-sm" style="font-size:18px;"> Home <i class="fa fa-angle-double-left"></i></button>
+        </a>
+    </div>
+</div>
+{% endblock %}

@@ -6,7 +6,7 @@
 [Kelvin-Wepo](https://github.com/Kelvin-Wepo/Galleria)
 <hr>
 
-[Live link]()
+[Live link](https://wepogallery.herokuapp.com/)
 
 ## Description
 This is a python django application for a personal gallery web app to display photos for others to see.

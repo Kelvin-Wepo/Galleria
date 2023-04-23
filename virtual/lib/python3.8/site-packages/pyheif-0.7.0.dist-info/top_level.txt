@@ -1,2 +1,0 @@
-_libheif_cffi
-pyheif
